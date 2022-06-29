@@ -1,13 +1,18 @@
 import React, {useContext, useEffect, useState} from "react";
 import {useParams, useHistory} from "react-router-dom";
+
 import AuthContext from "../../../context/auth/authContext";
 import AsignaturaContext from "../../../context/asignatura/asignaturaContext";
 import EjercicioContext from "../../../context/ejercicio/ejercicioContext";
+
 import Header from "../../../components/layout/Header";
 import Nav from "../../../components/layout/Nav";
 import {capitalize} from "../../../utils";
+
 import Migas from "../../../components/layout/Migas";
 import EjercicioInfo from "../../../components/Ejercicio/EjercicioInfo";
+
+// import EjercicioInfo from "../../../components/ejercicios/EjercicioInfo";
 
 function Ejercicio() {
     // Rutas
@@ -48,23 +53,27 @@ function Ejercicio() {
         // Verificar si es coordinador o docente de dicha asignatura
         if (asignaturas) {
             //Busqueda si es coordinador
-            const busqueda = asignaturas.find((item) => item._id === id);
+            const busqueda = asignaturas.find((asignatura) => asignatura._id === id);
             if (!busqueda) {
                 //Busqueda si es docente
                 const busquedaDocente = asignaturasDocente.find(
-                    (item) => item._id === id
+                    (asignatura) => asignatura._id === id
                 );
                 if (!busquedaDocente) {
                     history.push(`/dashboard`);
                 } else {
                     setAsignatura(busquedaDocente);
                     buscarEjercicioID(idejercicio);
+                    // setTipo("docente");
                 }
             } else {
                 setAsignatura(busqueda);
                 buscarEjercicioID(idejercicio);
+                // setTipo("coordinador");
             }
         }
+
+        // eslint-disable-next-line
     }, [nuevocambio]);
 
     if (!usuario) return null;
