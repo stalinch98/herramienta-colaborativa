@@ -10,7 +10,6 @@ import Migas from "../../../components/layout/Migas";
 import EjercicioInfo from "../../../components/Ejercicio/EjercicioInfo";
 
 function Ejercicio() {
-    // Rutas
     const history = useHistory();
     const {id, idejercicio} = useParams();
 
