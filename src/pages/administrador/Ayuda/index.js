@@ -1,32 +1,26 @@
 import React, {useContext, useEffect} from "react";
-import {useHistory} from "react-router-dom";
 import "../../../assets/statics/Manual_Coordinador.pdf";
 import AuthContext from "../../../context/auth/authContext";
 import Header from "../../../components/layout/Header";
 import Nav from "../../../components/layout/Nav";
 import Iframe from 'react-iframe'
 import AntHeader from "../../../components/layout/AntHeader";
-import PdfManual from "../../../../src/assets/statics/Manual_Coordinador.pdf";
+import Manual_Administrador from "../../../../src/assets/statics/Manual_Administrador.pdf";
+import Manual_Coordinador from "../../../../src/assets/statics/Manual_Coordinador.pdf";
+import Manual_Docente from "../../../../src/assets/statics/Manual_Docente.pdf";
 
 
 function Ayuda() {
     const authContext = useContext(AuthContext);
     const {usuario, usuarioAutenticado} = authContext;
-    const history = useHistory();
 
-
+    //
     useEffect(() => {
-        if (usuario) {
-            if (usuario?.rol !== "administrador") {
-                history.push("/dashboard");
-            }
-        } else {
-            usuarioAutenticado();
-        }
-    }, [usuarioAutenticado]);
+        usuarioAutenticado();
+    }, []);
 
     if (!usuario) return null;
-
+console.log(usuario.rol);
     return (
         <>
             <Header/>
@@ -41,11 +35,12 @@ function Ayuda() {
                             />
                             <div className="mt-4 row">
 
-                                <Iframe url={PdfManual}
-                                        width="900px"
-                                        height="800px"
-                                        overflow="hidden"
-                                        display="initial"
+                                <Iframe
+                                    url={usuario.rol === "administrador" ? Manual_Administrador : (usuario.rol === "docente" ? Manual_Docente : Manual_Coordinador)}
+                                    width="900px"
+                                    height="800px"
+                                    overflow="hidden"
+                                    display="initial"
                                 />
 
                             </div>
@@ -53,19 +48,7 @@ function Ayuda() {
                     </main>
                 </div>
             </div>
-            {/*<div className="modal">*/}
-            {/*    <div className="modalContent">*/}
-            {/*        <iframe src="../../../assets/statics/hola.pdf" style="width:600px; height:500px;"*/}
-            {/*                frameBorder="0"></iframe>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            {/*<Iframe url="../../../assets/statics/hola.pdf"*/}
-            {/*        width="450px"*/}
-            {/*        height="450px"*/}
-            {/*        id="myId"*/}
-            {/*        className="myClassname"*/}
-            {/*        display="initial"*/}
-            {/*        position="relative"/>*/}
+
 
         </>
     );
