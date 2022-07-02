@@ -1,5 +1,4 @@
 import React, {useContext, useEffect} from "react";
-import {useHistory} from "react-router-dom";
 import "../../../assets/statics/Manual_Coordinador.pdf";
 import AuthContext from "../../../context/auth/authContext";
 import Header from "../../../components/layout/Header";
@@ -21,7 +20,7 @@ function Ayuda() {
     }, []);
 
     if (!usuario) return null;
-console.log(usuario.rol);
+    console.log(usuario.rol);
     return (
         <>
             <Header/>
