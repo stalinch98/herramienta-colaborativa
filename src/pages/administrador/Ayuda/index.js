@@ -1,4 +1,5 @@
 import React, {useContext, useEffect} from "react";
+import {useHistory} from "react-router-dom";
 import "../../../assets/statics/Manual_Coordinador.pdf";
 import AuthContext from "../../../context/auth/authContext";
 import Header from "../../../components/layout/Header";
@@ -42,7 +43,6 @@ console.log(usuario.rol);
                                     overflow="hidden"
                                     display="initial"
                                 />
-
                             </div>
                         </div>
                     </main>

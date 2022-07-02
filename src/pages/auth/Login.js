@@ -2,7 +2,6 @@ import React, {useState, useContext, useEffect} from "react";
 import AlertaContext from "../../context/alerta/alertaContext";
 import Alerta from "../../components/layout/Alerta";
 import {Link} from 'react-router-dom';
-
 import "./login.css";
 
 import AuthContext from "../../context/auth/authContext";
@@ -71,7 +70,7 @@ export default function Login(props) {
                     <div className="card-header">
                         <img
                             className="img-fluid mx-auto d-block"
-                            src="https://quicklab-qa.herokuapp.com/images/logo-ups.png"
+                            src={`${process.env.REACT_APP_BACKEND_URL}/images/logo-ups.png`}
                             alt=""
                         />
                     </div>
