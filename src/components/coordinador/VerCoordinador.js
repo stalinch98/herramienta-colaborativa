@@ -34,7 +34,6 @@ function VerCoordinador() {
                                         asignatura={asignatura}
                                         tipo={"coordinador"}
                                         colorcard={"#d46f4d"}
-                                        periodo={asignatura.periodo.periodo}
                                     />
                             ))}
                         </div>
@@ -52,7 +51,6 @@ function VerCoordinador() {
                                     tipo={"docente"}
                                     asignatura={asignatura}
                                     colorcard={"#006692"}
-                                    periodo={asignatura.periodo.periodo}
                                 />
                             ))}
                         </div>

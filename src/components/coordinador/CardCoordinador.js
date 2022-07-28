@@ -9,7 +9,7 @@ import DashboardContext from "../../context/dashboard/dashboardContext";
 import {capitalize} from "../../utils";
 import ModalDocentes from "./ModalDocentes";
 
-function CardCoordinador({asignatura, tipo, colorcard, periodo}) {
+function CardCoordinador({asignatura, tipo, colorcard}) {
     const dashboardContext = useContext(DashboardContext);
     const {guardarAsignatura} = dashboardContext;
 
@@ -45,9 +45,6 @@ function CardCoordinador({asignatura, tipo, colorcard, periodo}) {
                     >
                         <div className="brand-card-title">
                             {capitalize(asignatura.nombre)}
-                        </div>
-                        <div className="brand-card-title">
-                            Período - {periodo}
                         </div>
                     </div>
                     <div className="brand-card-body">

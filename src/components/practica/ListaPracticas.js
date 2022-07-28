@@ -308,7 +308,7 @@ function ListadoPracticas({idAsignatura, tipo}) {
                 title="Ejercicio"
                 centered
                 visible={isModalDescargar}
-                onOk={generatePDF}
+                footer={null}
                 onCancel={() => setIsModalDescargar(false)}
                 width={900}
             >
